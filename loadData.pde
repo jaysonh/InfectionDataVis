@@ -7,7 +7,7 @@ void loadData()
         {
             String [] currentLine = lines[i].split(",");
             //println(lines[i]);
-            for(int j = 0; j < 41;j++)
+            for(int j = 0; j < 40;j++)
             {
               
                 circleSizes[j][i-2] = Float.parseFloat(currentLine[j+1]);
@@ -39,7 +39,7 @@ void loadData()
     }
     
     // Load R0 data, starting from column 45 row 4
-     String fileLines[] = loadStrings("data2.csv");
+     String fileLines[] = loadStrings("Scenariovaluesv2.csv");
      
      for(int i = 0; i < 100; i++)
      {
@@ -79,7 +79,7 @@ void loadData()
        
        for(int j = 0; j < 40;j++)
        {
-           int columnIndx = 129 + j;
+           int columnIndx = 214 + j;
            //println("i: " + i + " j: " + j + " currentline: " + currentLine[columnIndx]);
            if(currentLine[columnIndx].equals("#N/A"))
              VCActive[j][i] = 0;
@@ -97,6 +97,23 @@ void loadData()
        for(int j = 0; j < 40;j++)
        {
            int columnIndx = 171 + j;
+           println("i: " + i + " j: " + j + " currentline: " + currentLine[columnIndx]);
+           if(currentLine[columnIndx].equals("#N/A"))
+             ASActive[j][i] = 0;
+           else
+             ASActive[j][i] = Integer.parseInt(currentLine[columnIndx]);
+       }
+     }
+     
+     // Load option 4
+     for(int i = 0; i < 100; i++)
+     {
+       int lineIndx = i + 3;
+       String [] currentLine = fileLines[lineIndx].split(",");
+       
+       for(int j = 0; j < 40;j++)
+       {
+           int columnIndx = 256 + j;
            println("i: " + i + " j: " + j + " currentline: " + currentLine[columnIndx]);
            if(currentLine[columnIndx].equals("#N/A"))
              ASActive[j][i] = 0;

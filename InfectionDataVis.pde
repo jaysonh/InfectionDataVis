@@ -17,7 +17,7 @@ int GRID_DISPLAY_SIZE_Y = 500;
 int GRID_SIZE_X = GRID_DISPLAY_SIZE_X / GRID_WIDTH;
 int GRID_SIZE_Y = GRID_DISPLAY_SIZE_Y / GRID_HEIGHT;
 
-int NUM_DAYS = 41;
+int NUM_DAYS = 40;
 boolean showUI=true;
 int currentDay=0;
 float [][]circleSizes = new float[NUM_DAYS][GRID_HEIGHT*GRID_WIDTH];
@@ -50,10 +50,12 @@ String [] summaryValueTitles = { "# Infected Cases: ",
                                  "# Vector Control: ",
                                  "# Active Screenings: "};
 
-float [][]R0Values = new float [41][100];
-int [][]CValues  = new int [41][100];
-int [][]VCActive = new int[41][100];
-int [][]ASActive = new int[41][100];
+float [][]R0Values = new float [40][100];
+int [][]CValues  = new int [40][100];
+int [][]VCActive = new int[40][100];
+int [][]ASActive = new int[40][100];
+
+int [][]option4 = new int[40][100];
 
 DropdownList highlightList;
 
@@ -137,7 +139,9 @@ void draw()
               fill(255,255,200);  
           else if(highlightMode == 2 && ASActive[currentDay][i] > 0)
               fill(255,255,200);  
-          else if(highlightMode == 2 && VCActive[currentDay][i] > 0)
+          else if(highlightMode == 3 && VCActive[currentDay][i] > 0)
+              fill(255,255,200);  
+          else if(highlightMode == 4 && option4[currentDay][i] > 0)
               fill(255,255,200);  
           
           
@@ -196,7 +200,7 @@ void draw()
     currentDay++;
     quarterLabel.setText("Quarter: " + currentDay);
     
-    if(currentDay >= 41)
+    if(currentDay >= 40)
     {
       currentDay=0;
     }

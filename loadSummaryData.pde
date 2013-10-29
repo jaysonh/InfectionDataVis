@@ -2,7 +2,7 @@ void loadSummaryData()
 {
   
   
-    String lines[] = loadStrings("data2.csv");
+    String lines[] = loadStrings("Scenariovaluesv2.csv");
     
     for(int j = 0; j < 6;j++)
     {
@@ -13,7 +13,8 @@ void loadSummaryData()
       {
         int rowIndx = i +1;
         
-         summaryValues[j][i] = Integer.parseInt(currentLine[rowIndx]);
+         option4[j][i] = Integer.parseInt(currentLine[rowIndx]);
       }
     }
 }
+
